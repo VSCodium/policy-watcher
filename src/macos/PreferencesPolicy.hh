@@ -8,6 +8,7 @@
 
 #include <napi.h>
 #include <CoreFoundation/CoreFoundation.h>
+#include <optional>
 #include "../Policy.hh"
 
 using namespace Napi;
