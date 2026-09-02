@@ -3,9 +3,10 @@
   "version": "1.4.0-265896",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/VSCodium/policy-watcher",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vscodium/policy-watcher.git"
+    "url": "git+https://github.com/VSCodium/policy-watcher.git"
   },
   "author": "João Moreno",
   "license": "MIT",
@@ -23,6 +24,9 @@
     "release-it": "^18.1.1"
   },
   "scripts": {
+    "ci:lint": "zizmor .",
+		"ci:lint:fix": "zizmor . --fix=all",
+    "ci:update": "pinact run -min-age 7 -update",
     "release": "release-it --no-increment"
   }
 }
