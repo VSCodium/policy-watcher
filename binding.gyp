@@ -25,7 +25,10 @@
                     ],
                     "variables": {
                         "cxx": "clang++"
-                    }
+                    },
+                    "cflags": [
+                        "-O2", "-fstack-protector-strong"
+                    ]
                 }],
                 ['OS=="mac" and target_arch=="arm64"', {
                     "xcode_settings": {
@@ -38,6 +41,9 @@
                     ],
                     "defines": [
                         "LINUX",
+                    ],
+                    "cflags": [
+                        "-O2", "-fstack-protector-strong"
                     ]
                 }],
                 ["OS=='win'", {
@@ -51,7 +57,7 @@
                         "WINDOWS"
                     ],
                     "libraries": [
-                        "userenv.lib"
+                        "-luserenv.lib"
                     ],
                     "msvs_configuration_attributes": {
                         "SpectreMitigation": "Spectre"
@@ -60,13 +66,17 @@
                         "VCCLCompilerTool": {
                             'AdditionalOptions': [
                                 '/guard:cf',
+                                '/W3',
+                                '/we4146',
                                 '/we4244',
                                 '/we4267',
+                                '/sdl',
                                 '/ZH:SHA_256'
                             ],
                         },
                         'VCLinkerTool': {
                             'AdditionalOptions': [
+                                '/DYNAMICBASE',
                                 '/guard:cf'
                             ]
                         }

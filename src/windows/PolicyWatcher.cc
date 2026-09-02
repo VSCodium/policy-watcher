@@ -31,17 +31,17 @@ PolicyWatcher::~PolicyWatcher()
 
 void PolicyWatcher::AddStringPolicy(const std::string name)
 {
-  policies.push_back(std::make_unique<StringPolicy>(name, vendorName, productName));
+  policies.push_back(std::make_unique<StringPolicy>(name, vendorName, productName, registryPath));
 }
 
 void PolicyWatcher::AddNumberPolicy(const std::string name)
 {
-  policies.push_back(std::make_unique<NumberPolicy>(name, vendorName, productName));
+  policies.push_back(std::make_unique<NumberPolicy>(name, vendorName, productName, registryPath));
 }
 
 void PolicyWatcher::AddBooleanPolicy(const std::string name)
 {
-  policies.push_back(std::make_unique<BooleanPolicy>(name, vendorName, productName));
+  policies.push_back(std::make_unique<BooleanPolicy>(name, vendorName, productName, registryPath));
 }
 
 void PolicyWatcher::OnExecute(Napi::Env env)

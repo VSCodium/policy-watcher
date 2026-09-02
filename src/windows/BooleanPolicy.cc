@@ -8,8 +8,8 @@
 
 using namespace Napi;
 
-BooleanPolicy::BooleanPolicy(const std::string& name, const std::string &vendorName, const std::string& productName)
-  : RegistryPolicy(name, vendorName, productName, {REG_DWORD}) {}
+BooleanPolicy::BooleanPolicy(const std::string& name, const std::string &vendorName, const std::string& productName, const std::string &registryPath)
+  : RegistryPolicy(name, vendorName, productName, {REG_DWORD}, registryPath) {}
 
 bool BooleanPolicy::parseRegistryValue(LPBYTE buffer, DWORD bufferSize, DWORD type) const
 {
