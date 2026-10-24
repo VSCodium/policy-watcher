@@ -53,30 +53,6 @@ jobs:
           mkdir -p "$HOME/.gyp"
           echo "$includes" > "$HOME/.gyp/include.gypi"
 
-      - name: Configure macOS
-        if: runner.os == 'macOS'
-        run: |
-          set -e
-          includes=$(cat << 'EOF'
-          {
-            "target_defaults": {
-              "conditions": [
-                ["OS=='mac'", {
-                  "cflags_cc!": [ "-mmacosx-version-min=10.7" ],
-                  "cflags_cc": [ "-mmacosx-version-min=10.13" ],
-                  "xcode_settings": {
-                    "MACOSX_DEPLOYMENT_TARGET": "10.13"
-                  }
-                }]
-              ]
-            }
-          }
-          EOF
-          )
-          mkdir -p "$HOME/.gyp"
-          echo "$includes" > "$HOME/.gyp/include.gypi"
-          echo "MACOSX_DEPLOYMENT_TARGET=10.13" >> "$GITHUB_ENV"
-      
       - name: Configure Windows
         if: runner.os == 'Windows'
         shell: pwsh
