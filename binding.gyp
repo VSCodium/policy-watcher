@@ -28,7 +28,7 @@
                         "cxx": "clang++"
                     },
                     "cflags": [
-                        "-O2", "-fstack-protector-strong"
+                        "-O2", "-fstack-protector-strong", "-mmacosx-version-min=10.13"
                     ]
                 }],
                 ['OS=="mac" and target_arch=="arm64"', {
