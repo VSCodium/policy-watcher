@@ -30,6 +30,12 @@
                     "variables": {
                         "cxx": "clang++"
                     },
+                    "cflags!": [
+                        "-mmacosx-version-min=10.7"
+                    ],
+                    "cflags_cc!": [
+                        "-mmacosx-version-min=10.7"
+                    ],
                     "cflags": [
                         "-O2", "-fstack-protector-strong", "-mmacosx-version-min=10.13"
                     ]
