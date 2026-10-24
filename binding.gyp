@@ -24,6 +24,9 @@
                     "defines": [
                         "MACOS",
                     ],
+                    "xcode_settings": {
+                        "MACOSX_DEPLOYMENT_TARGET": "10.13"
+                    },
                     "variables": {
                         "cxx": "clang++"
                     },
