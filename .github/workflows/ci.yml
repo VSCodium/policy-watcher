@@ -52,6 +52,10 @@ jobs:
           )
           mkdir -p "$HOME/.gyp"
           echo "$includes" > "$HOME/.gyp/include.gypi"
+
+      - name: Configure macOS
+        if: runner.os == 'macOS'
+        run: echo "MACOSX_DEPLOYMENT_TARGET=10.13" >> "$GITHUB_ENV"
       
       - name: Configure Windows
         if: runner.os == 'Windows'
